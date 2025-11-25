@@ -276,26 +276,93 @@ footer { text-align:center; padding:3rem; background:#f3f4ef; font-size:0.9rem; 
 
 /* Responsive */
 @media(max-width:600px){ .hero-photo{width:120px;height:120px;} .hero h1{font-size:2rem;} nav a{margin:0 0.5rem;} }
-/* Mobile hero */
+/* HERO - mobile */
 @media(max-width: 768px) {
   .hero {
-    min-height: 100vh; /* only fill screen on smaller devices */
-    padding: 3rem 1rem; /* reduce padding a bit */
+    min-height: 100vh;
+    padding: 3rem 1rem;
+    flex-direction: column; /* stack photo + text */
+    justify-content: center; /* vertically center */
+  }
+
+  .hero .hero-text {
+    text-align: center;
+  }
+
+  .hero-photo {
+    margin: 0 0 1.5rem 0; /* remove right margin */
   }
 }
+
+/* MOBILE HEADER / HAMBURGER MENU */
+@media(max-width: 768px) {
+  nav {
+    display: none; /* hide default horizontal menu */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #0a1f44;
+    flex-direction: column;
+    padding: 1rem 0;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  }
+
+  nav a {
+    padding: 0.8rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    width: 28px;
+    height: 22px;
+    position: relative;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
 </style>
 </head>
 <body>
 
 <header>
+  <div class="header-left">
   <img src="el_logo.svg" alt="Logo Eliška Vondráčková" class="logo">
-  <nav>
-    <a href="#onas">O nás</a>
-    <a href="#values">Proč zvolit právě mě</a>
-    <a href="#sluzby">Naše služby</a>
-    <a href="#cenik">Ceník</a>
-    <a href="#kontakt">Kontakt</a>
-  </nav>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav>
+  <a href="#onas">O nás</a>
+  <a href="#values">Proč zvolit právě mě</a>
+  <a href="#sluzby">Naše služby</a>
+  <a href="#cenik">Ceník</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
 </header>
 
 <section class="hero">
@@ -572,4 +639,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
