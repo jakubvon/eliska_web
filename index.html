@@ -296,21 +296,37 @@ footer { text-align:center; padding:3rem; background:#f3f4ef; font-size:0.9rem; 
 
 /* MOBILE HEADER / HAMBURGER MENU */
 @media(max-width: 768px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+  }
+
   nav {
-    display: none; /* hide default horizontal menu */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #0a1f44;
+    display: flex;
     flex-direction: column;
-    padding: 1rem 0;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 250px;
+    background: #0a1f44;
+    padding-top: 5rem;
+    gap: 1.5rem;
+    transition: right 0.35s ease;
+    z-index: 200;
+  }
+
+  nav.show {
+    right: 0;
   }
 
   nav a {
     padding: 0.8rem 2rem;
     border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    font-weight: 500;
   }
 
   .hamburger {
@@ -319,6 +335,7 @@ footer { text-align:center; padding:3rem; background:#f3f4ef; font-size:0.9rem; 
     width: 28px;
     height: 22px;
     position: relative;
+    z-index: 210;
   }
 
   .hamburger span {
@@ -340,7 +357,28 @@ footer { text-align:center; padding:3rem; background:#f3f4ef; font-size:0.9rem; 
   .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
   }
+
+  /* Overlay */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    z-index: 150;
+  }
+
+  .menu-overlay.show {
+    opacity: 1;
+    pointer-events: all;
+  }
 }
+
+
 
 </style>
 </head>
@@ -348,22 +386,29 @@ footer { text-align:center; padding:3rem; background:#f3f4ef; font-size:0.9rem; 
 
 <header>
   <div class="header-left">
-  <img src="el_logo.svg" alt="Logo Eliška Vondráčková" class="logo">
+    <a href="#" class="logo-link">
+      <img src="el_logo.svg" alt="Logo Eliška Vondráčková" class="logo">
+    </a>
+  </div>
+
   <div class="hamburger">
     <span></span>
     <span></span>
     <span></span>
   </div>
-</div>
-<nav>
-  <a href="#onas">O nás</a>
-  <a href="#values">Proč zvolit právě mě</a>
-  <a href="#sluzby">Naše služby</a>
-  <a href="#cenik">Ceník</a>
-  <a href="#kontakt">Kontakt</a>
-</nav>
 
+  <nav>
+    <a href="#onas">O nás</a>
+    <a href="#values">Proč zvolit právě mě</a>
+    <a href="#sluzby">Naše služby</a>
+    <a href="#cenik">Ceník</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+  
+  <!-- Overlay for mobile menu -->
+  <div class="menu-overlay"></div>
 </header>
+
 
 <section class="hero">
   <img src="el_profil_fotka.png" alt="Eliška Vondráčková" class="hero-photo">
@@ -635,16 +680,50 @@ document.addEventListener('DOMContentLoaded', () => {
   }, {threshold:0.2});
   serviceItems.forEach(item=>servicesObserver.observe(item));
 });
-  const hamburger = document.querySelector('.hamburger');
-const mobileNav = document.querySelector('header nav');
 
+const hamburger = document.querySelector('.hamburger');
+const mobileNav = document.querySelector('header nav');
+const navLinks = document.querySelectorAll('header nav a');
+const logoLink = document.querySelector('.logo-link');
+const overlay = document.querySelector('.menu-overlay');
+
+// Toggle mobile menu
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
-  mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+  mobileNav.classList.toggle('show');
+  overlay.classList.toggle('show');
 });
+
+// Close menu when a link is clicked
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if(window.innerWidth <= 768) {
+      mobileNav.classList.remove('show');
+      hamburger.classList.remove('active');
+      overlay.classList.remove('show');
+    }
+  });
+});
+
+// Close menu if clicking on overlay
+overlay.addEventListener('click', () => {
+  mobileNav.classList.remove('show');
+  hamburger.classList.remove('active');
+  overlay.classList.remove('show');
+});
+
+// Scroll to top on logo click
+logoLink.addEventListener('click', e => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // close menu if open
+  mobileNav.classList.remove('show');
+  hamburger.classList.remove('active');
+  overlay.classList.remove('show');
+});
+
+
 </script>
 
 </body>
 </html>
-
-
