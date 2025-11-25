@@ -113,7 +113,16 @@ nav a:hover::after {
 
 
 /* Hero */
-.hero { width:100%; text-align:center; padding:6rem 1rem 4rem; background:url('lawyer_background.png') no-repeat center center fixed; background-size:cover; position:relative; display:flex; justify-content:center; align-items:center; }
+.hero {
+  width: 100%;
+  padding: 6rem 1rem 4rem;
+  background: url('lawyer_background.png') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .hero::before {
   content:"";
   position:absolute;
@@ -267,6 +276,13 @@ footer { text-align:center; padding:3rem; background:#f3f4ef; font-size:0.9rem; 
 
 /* Responsive */
 @media(max-width:600px){ .hero-photo{width:120px;height:120px;} .hero h1{font-size:2rem;} nav a{margin:0 0.5rem;} }
+/* Mobile hero */
+@media(max-width: 768px) {
+  .hero {
+    min-height: 100vh; /* only fill screen on smaller devices */
+    padding: 3rem 1rem; /* reduce padding a bit */
+  }
+}
 </style>
 </head>
 <body>
@@ -556,3 +572,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
