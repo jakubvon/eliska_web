@@ -3,11 +3,24 @@
 <head> 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mgr. Eliška Vondráčková, advokát</title>
+<title>Mgr. Eliška Vondráčková, advokátka</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- favicon -->
+<link rel="icon" type="image/svg+xml" href="el_logo.svg">
 <style>
 /* Base & Reset */
 * { box-sizing:border-box; margin:0; padding:0; }
-body { font-family:'Inter', Arial, sans-serif; background:#fefefe; color:#222; line-height:1.6; scroll-behavior:smooth; }
+body { 
+  font-family:'Inter', Arial, sans-serif; 
+  background:#f7f4ef; 
+  color:#1a1a1a; 
+  line-height:1.6; 
+  scroll-behavior:smooth;
+  background-image: url('noise.png'); /* optional subtle texture */
+  background-size: 300px;
+}
 a { text-decoration:none; color:inherit; }
 
 /* Full-width sections */
@@ -15,61 +28,242 @@ section { width:100%; padding:4rem 1.5rem; opacity:0; transform:translateY(30px)
 section .content { max-width:1200px; margin:0 auto; }
 section.show { opacity:1; transform:translateY(0); }
 
+.consumer-dispute {
+  max-width: 800px;
+  margin: 60px auto 60px auto;
+  padding: 20px 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+.consumer-dispute h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.consumer-dispute a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+
 /* Section titles */
-h2 { font-size:2rem; color:#0a1f44; margin-bottom:1.5rem; position:relative; text-align:left; }
-h2::after { content:''; display:block; width:60px; height:3px; background:#f0c14b; margin-top:0.5rem; }
+h2 { font-family:'Playfair Display', serif; font-size:2rem; color:#0d1b2a; margin-bottom:1.5rem; position:relative; text-align:left; }
+h2::after { content:''; display:block; width:60px; height:3px; background:#d4af37; margin-top:0.5rem; }
 
 /* Header */
-header { 
+header {
   background:#0a1f44; 
-  padding:1rem 1rem; 
+  padding:1rem 3rem; /* více prostoru nahoře/dole i po stranách */
   position:sticky; 
   top:0; 
   z-index:100; 
-  box-shadow:0 3px 10px rgba(0,0,0,0.15); 
+  box-shadow:0 5px 15px rgba(0,0,0,0.2); /* jemný luxusní stín */
   display:flex; 
-  justify-content:center;
+  justify-content:space-between; 
+  align-items:center;
 }
-nav { margin:0; }
-nav a { margin:0 1.5rem; font-weight:500; color:#fff; position:relative; font-size:1rem; }
-nav a::after { content:''; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:#f0c14b; transition:0.3s; }
-nav a:hover::after { width:100%; }
+
+.header-left {
+  display:flex;
+  align-items:center;
+}
+
+header .logo {
+  max-height: 3rem;
+  width: auto;
+  margin-right: 1.5rem;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+nav {
+  display:flex;
+  gap:2rem; /* trochu víc, menu “dýchá” */
+}
+
+nav a {
+  font-weight:500;
+  color:#fff;
+  position:relative;
+  font-size:1.05rem;
+  letter-spacing:0.5px; /* jemné protažení písma */
+  transition:all 0.3s;
+}
+
+nav a:hover {
+  color:#f0c14b; /* jemný hover efekt na text */
+}
+
+nav a::after {
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:#f0c14b;
+  transition:0.3s;
+}
+
+nav a:hover::after {
+  width:100%;
+}
+
+
 
 /* Hero */
-.hero { width:100%; text-align:center; padding:6rem 1rem 4rem; background:url('eliska_eb_fotka1.jpg') no-repeat center center fixed; background-size:cover; position:relative; display:flex; justify-content:center; align-items:center; }
-.hero::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(10,31,68,0.6); z-index:1; }
+.hero { width:100%; text-align:center; padding:6rem 1rem 4rem; background:url('lawyer_background.png') no-repeat center center fixed; background-size:cover; position:relative; display:flex; justify-content:center; align-items:center; }
+.hero::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(13,27,42,0.78);
+  backdrop-filter: blur(4px);
+  z-index:1;
+}
 .hero .hero-text { position:relative; z-index:2; color:#fff; max-width:1200px; }
-.hero-photo { width:150px; height:150px; object-fit:cover; border-radius:50%; margin-bottom:1.5rem; box-shadow:0 6px 20px rgba(0,0,0,0.2); transition:all 1s ease-out; }
-.hero h1 { font-size:2.5rem; margin-bottom:0.5rem; }
+.hero-photo {
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  border-radius:50%;
+  margin-bottom:1.5rem;
+  margin-right:1rem;
+  box-shadow:0 6px 20px rgba(0,0,0,0.2);
+  transition:all 1s ease-out;
+  position:relative;
+  z-index:2;
+}
+.hero h1 { 
+  font-family:'Playfair Display', serif;
+  font-size:2.5rem; 
+  margin-bottom:0.5rem; 
+  position:relative;
+}
+.hero h1::after {
+  content:'';
+  display:block;
+  width:60px;
+  height:2px;
+  background:#d4af37;
+  margin:0.8rem auto 0 auto;
+}
 .hero p { font-size:1.2rem; max-width:600px; margin:0 auto; }
 
+/* Values Section */
+#values { background:#fefefe; padding:3rem 1rem; }
+#values ul { list-style: disc inside; color:#555; font-size:1rem; margin-top:1rem; line-height:1.6; }
+#values h3 { font-family:'Playfair Display', serif; font-size:1.5rem; color:#0d1b2a; margin-bottom:1rem; }
+
 /* Naše služby */
-#sluzby { background:#f9f9f9; padding:5rem 1rem; }
+#sluzby { background:#fefefe; padding:5rem 1rem; }
 .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
-.service-item { background:#fff; padding:1.8rem 1.5rem; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.05); opacity:0; transform:translateY(20px); transition:all 0.6s ease-out; display:flex; flex-direction:column; gap:0.5rem; }
+/* Naše služby – upgrade vizuálu */
+.service-item {
+  background:#fff;
+  padding:1.8rem 1.5rem;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  opacity:0;
+  transform:translateY(20px);
+  transition:all 0.5s ease-out;
+  display:flex;
+  flex-direction:column;
+  gap:0.5rem;
+  border-top:4px solid transparent;
+}
+
 .service-item.show { opacity:1; transform:translateY(0); }
-.service-item h3 { font-size:1.2rem; color:#0a1f44; margin-bottom:0.3rem; display:flex; align-items:center; gap:0.5rem; }
-.service-item h3 svg { transition:all 0.3s; }
+
+.service-item h3 {
+  font-size:1.25rem;
+  color:#0d1b2a;
+  margin-bottom:0.5rem;
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
+  position:relative;
+}
+
+.service-item h3::after {
+  content:"";
+  position:absolute;
+  bottom:-5px;
+  left:0;
+  width:0%;
+  height:3px;
+  background:linear-gradient(90deg,#f0c14b,#d4af37);
+  transition:0.4s ease;
+}
+
+.service-item:hover h3::after { width:100%; }
+
+.service-item h3 svg { transition:all 0.3s; fill:#0d1b2a; }
 .service-item:hover h3 svg { transform:scale(1.2); fill:#f0c14b; }
-.service-item:hover { transform:translateY(-5px) scale(1.02); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
-.service-item p { color:#555; font-size:0.95rem; line-height:1.5; }
+
+.service-item:hover {
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 12px 25px rgba(0,0,0,0.12);
+  border-top:4px solid #f0c14b;
+}
+
+.service-item p, .service-item ul {
+  color:#555;
+  font-size:0.95rem;
+  line-height:1.5;
+  margin:0;
+}
+
+.service-item ul { padding-left:1.05rem; margin-top:0.5rem; }
+
+
+/* Ceník */
+#cenik { background:#ffffff; padding:5rem 1rem; }
+.pricing-card {
+  background:#fff;
+  padding:2rem;
+  border-radius:10px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+  line-height:1.7;
+}
+.pricing-card h3 { margin-top:1.5rem; font-size:1.3rem; color:#0d1b2a; }
+.pricing-card p { margin-top:0.3rem; color:#444; }
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
+  stroke: #222; /* světlá elegantní barva */
+}
+
+.contact-section p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 
 /* Kontakt */
-#kontakt { background:#e8edf5; text-align:center; padding:5rem 1rem; }
-#kontakt h2 { display:inline-block; margin:0 auto; }
+#kontakt { background:#f0f0f0; text-align:center; padding:5rem 1rem; }
+#kontakt h2 { display:inline-block; margin:0 auto; font-family:'Playfair Display', serif; }
 #kontakt h2::after { margin:0.5rem auto 0 auto; }
 #kontakt p, #kontakt form { margin:1rem auto 0 auto; max-width:500px; text-align:center; }
 form { display:flex; flex-direction:column; gap:1rem; }
 input, textarea { width:100%; padding:1rem; border:1px solid #ccc; border-radius:8px; font-size:1rem; transition:all 0.3s; }
-input:focus, textarea:focus { border-color:#0a1f44; outline:none; box-shadow:0 0 12px rgba(10,31,68,0.15); }
-button, .contact-btn { background:linear-gradient(135deg,#0a1f44,#122f66); color:#fff; border:none; padding:1rem; border-radius:50px; cursor:pointer; font-weight:600; font-size:1rem; transition:all 0.3s; }
-button:hover, .contact-btn:hover { background:linear-gradient(135deg,#122f66,#0a1f44); transform:scale(1.05); }
+input:focus, textarea:focus { border-color:#0d1b2a; outline:none; box-shadow:0 0 12px rgba(13,27,42,0.15); }
+button, .contact-btn { background:linear-gradient(135deg,#0d1b2a,#122f66); color:#fff; border:none; padding:1rem; border-radius:50px; cursor:pointer; font-weight:600; font-size:1rem; transition:all 0.3s; }
+button:hover, .contact-btn:hover { background:linear-gradient(135deg,#122f66,#0d1b2a); transform:scale(1.05); }
 
 /* Floating button */
 .contact-btn { position:fixed; bottom:25px; right:25px; z-index:100; }
 
 /* Footer */
-footer { text-align:center; padding:3rem; background:#f3f4f7; font-size:0.9rem; color:#666; }
+footer { text-align:center; padding:3rem; background:#f3f4ef; font-size:0.9rem; color:#666; }
 
 /* Responsive */
 @media(max-width:600px){ .hero-photo{width:120px;height:120px;} .hero h1{font-size:2rem;} nav a{margin:0 0.5rem;} }
@@ -78,18 +272,21 @@ footer { text-align:center; padding:3rem; background:#f3f4f7; font-size:0.9rem; 
 <body>
 
 <header>
+  <img src="el_logo.svg" alt="Logo Eliška Vondráčková" class="logo">
   <nav>
     <a href="#onas">O nás</a>
+    <a href="#values">Proč zvolit právě mě</a>
     <a href="#sluzby">Naše služby</a>
+    <a href="#cenik">Ceník</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
 </header>
 
 <section class="hero">
-  <img src="eliska_fotka2.jpg" alt="Eliška Vondráčková" class="hero-photo">
+  <img src="el_profil_fotka.png" alt="Eliška Vondráčková" class="hero-photo">
   <div class="hero-text">
-    <h1>Mgr. Eliška Vondráčková, advokát</h1>
-    <p>Advokátka poskytující profesionální právní služby s individuálním přístupem.</p>
+    <h1>Mgr. Eliška Vondráčková, advokátka</h1>
+    <p>Advokátka poskytující profesionální právní služby s individuálním přístupem - Brno, Blansko a okolí.</p>
   </div>
 </section>
 
@@ -100,45 +297,165 @@ footer { text-align:center; padding:3rem; background:#f3f4f7; font-size:0.9rem; 
 </div>
 </section>
 
+<section id="values">
+<div class="content">
+<h2>Proč zvolit právě mě</h2>
+<ul>
+<li>Individuální a lidský přístup ke každému klientovi</li>
+<li>Pečlivá příprava každého případu</li>
+<li>Rychlá a jasná komunikace</li>
+<li>Transparentní odměna bez překvapení</li>
+<li>Důraz na diskrétnost a ochranu Vašich práv</li>
+</ul>
+</div>
+</section>
+
 <section id="sluzby">
 <div class="content">
 <h2>Naše služby</h2>
 <div class="services-grid">
+
   <div class="service-item">
     <h3>
-      <svg width="24" height="24" fill="#0a1f44" viewBox="0 0 24 24"><path d="M12 2l7 21h-14l7-21z"/></svg>
-      Občanské právo
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0a1f44" viewBox="0 0 24 24">
+        <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+      </svg>
+
+      RODINNÉ PRÁVO
     </h3>
-    <p>Pomáháme s vyjednáváním smluv, vypořádáním spoluvlastnictví a řešením občanskoprávních sporů.</p>
+    <ul>
+      <li>Rozvod manželství (návrh na rozvod, právní poradenství, zastoupení)</li>
+      <li>Společné jmění manželů (sepis žaloby/dohody o vypořádání SJM)</li>
+      <li>Úprava poměrů k nezletilým dětem (péče, styk, výživné)</li>
+      <li>Zastupování před soudy</li>
+      <li>A další související služby</li>
+    </ul>
   </div>
+
   <div class="service-item">
     <h3>
-      <svg width="24" height="24" fill="#0a1f44" viewBox="0 0 24 24"><path d="M12 0L2 7v4c0 7 10 13 10 13s10-6 10-13V7l-10-7z"/></svg>
-      Trestní právo
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0a1f44" viewBox="0 0 24 24">
+        <path d="M12 3l10 9h-3v9h-6v-6H11v6H5v-9H2l10-9z"/>
+      </svg>
+
+      NEMOVITOSTI
     </h3>
-    <p>Zastupování v trestním řízení, obhajoba i zastupování poškozených, příprava trestních oznámení.</p>
+    <ul>
+      <li>Smluvní dokumentace k nemovitostem (kupní, darovací, nájemní, zástavní)</li>
+      <li>Věcná břemena (zřízení či zrušení)</li>
+      <li>Návrhy na vklad do katastru nemovitostí</li>
+      <li>Advokátní úschova kupní ceny</li>
+      <li>A další související služby</li>
+    </ul>
   </div>
+
   <div class="service-item">
     <h3>
-      <svg width="24" height="24" fill="#0a1f44" viewBox="0 0 24 24"><path d="M3 3h18v2H3V3zm0 4h18v2H3V7zm0 4h18v2H3v-2z"/></svg>
-      Pracovní právo
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0a1f44" viewBox="0 0 24 24">
+        <path d="M4 4h16v2H4V4zm0 4h16v2H4V8zm0 4h16v2H4v-2zm0 4h16v2H4v-2z"/>
+      </svg>
+
+      OBČANSKÉ PRÁVO
     </h3>
-    <p>Poradenství pro zaměstnance i zaměstnavatele – pracovní smlouvy, výpovědi, spory o ukončení pracovního poměru.</p>
+    <ul>
+      <li>Smluvní agenda (kupní, darovací, nájemní, o dílo apod.)</li>
+      <li>Svéprávnost a opatrovnictví</li>
+      <li>Vymáhání pohledávek (výzvy, žaloby, exekuce)</li>
+      <li>Zastupování ve sporných i nesporných řízeních</li>
+      <li>A další související služby</li>
+    </ul>
   </div>
+
   <div class="service-item">
     <h3>
-      <svg width="24" height="24" fill="#0a1f44" viewBox="0 0 24 24"><path d="M12 0L24 6v12l-12 6L0 18V6l12-6z"/></svg>
-      Správní právo
+      <svg aria-hidden="true" role="img" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+         <title>Trestní právo</title>
+         <path d="M12 2l6 3v5.2c0 4.3-3.1 8.4-6 9.6-2.9-1.2-6-5.3-6-9.6V5l6-3z" />
+      </svg>
+
+      TRESTNÍ PRÁVO
     </h3>
-    <p>Zastupování ve správním řízení, odvolání proti rozhodnutím, přestupky i daňové záležitosti.</p>
+    <ul>
+      <li>Obhajoba v trestním řízení (všechny fáze řízení, stížnosti, odvolání)</li>
+      <li>Zastupování poškozených</li>
+    </ul>
   </div>
+
   <div class="service-item">
     <h3>
-      <svg width="24" height="24" fill="#0a1f44" viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm4 2h6v2H9V7zm0 4h6v2H9v-2zm0 4h6v2H9v-2z"/></svg>
-      Obchodní právo
+      <svg aria-hidden="true" role="img" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+         <path d="M3 18h18v2H3z" />
+         <path d="M5 14l3-3 3 4 4-6 3 4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+         <path d="M18.2 6v.9l.6.3" />
+      </svg>
+
+      INSOLVENČNÍ PRÁVO
     </h3>
-    <p>Komplexní právní servis podnikatelům – smlouvy, zakládání společností, zastupování v obchodních sporech.</p>
+    <ul>
+      <li>Sepsání insolvenčního návrhu včetně oddlužení</li>
+      <li>Přihlášky do insolvenčního řízení</li>
+      <li>Sledování insolvenčního rejstříku</li>
+      <li>Zastupování v insolvenčním řízení</li>
+    </ul>
   </div>
+
+  <div class="service-item">
+    <h3>
+      <svg aria-hidden="true" role="img" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <title>Advokátní úschova</title>
+  <rect x="3" y="7" width="18" height="12" rx="2" ry="2" />
+  <circle cx="12" cy="13.5" r="2.2" />
+  <path d="M12 11v1.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" fill="none"/>
+  <path d="M17 8l2-2" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+</svg>
+
+      ADVOKÁTNÍ ÚSCHOVA
+    </h3>
+    <ul>
+      <li>Sepsání/revize smlouvy o advokátní úschově</li>
+      <li>Bezpečné uschování kupní ceny nebo jiných finančních částek</li>
+      <li>Samostatný úschovní účet oddělený od prostředků advokáta</li>
+      <li>Výplata plnění po splnění sjednaných podmínek</li>
+      <li>Informování účastníků o průběhu úschovy a pohybech na účtu</li>
+    </ul>
+  </div>
+
+</div>
+</div>
+</section>
+
+<section class="consumer-dispute">
+  <h2>Mimosoudní řešení spotřebitelských sporů</h2>
+  <p>
+    Na základě zákona č. 634/1992 Sb., o ochraně spotřebitele, ve znění pozdějších předpisů,
+    je možné mimosoudní řešení spotřebitelského sporu vyplývajícího ze smlouvy o poskytování
+    právních služeb mezi advokátem a spotřebitelem.
+  </p>
+  <p>
+    Pověřeným subjektem je Česká advokátní komora, sídlem Národní 16, Praha 1, PSČ 110 00.  
+    Více informací naleznete na <a href="https://www.cak.cz" target="_blank" rel="noopener">www.cak.cz</a>.
+  </p>
+</section>
+
+
+<section id="cenik">
+<div class="content">
+<h2>Ceník právních služeb</h2>
+<div class="pricing-card">
+<p>Výše odměny závisí na povaze a složitosti věci, rozsahu požadovaných služeb i preferencích klienta. Odměnu je možné sjednat zejména následujícími způsoby:</p>
+<h3>Časová odměna</h3>
+<p>Od <strong>2000 Kč / hodina</strong> (dle náročnosti věci). Nejsem plátcem DPH.</p>
+<h3>Fixní odměna</h3>
+<p>Celková předem stanovená cena za danou službu. Fixní odměnu využívám zejména v případech, kde
+je možné jasně vymezit rozsah práce (sepis/revize smlouvy, návrh na rozvod atd.)</p>
+<h3>Podílová odměna</h3>
+<p>Odměna je stanovena jako procentuální podíl z výsledku, kterého se podaří dosáhnout, zpravidla z
+přiznané či získané částky (např. při vymáhání pohledávek)</p>
+<h3>Úkonová odměna</h3>
+<p>Dle počtu úkonů právní služby, které budou v dané věci učiněny, jednotlivé úkony právní služby jsou
+stanoveny na základě <strong>Vyhlášky Ministerstva spravedlnosti č. 177/1996 Sb.</strong>, o odměnách advokátů a
+náhradách advokátů za poskytování právních služeb (advokátní tarif).</p>
+<p>Pokud není odměna sjednána dohodou, řídí se příslušnými ustanoveními advokátního tarifu.</p>
 </div>
 </div>
 </section>
@@ -146,15 +463,40 @@ footer { text-align:center; padding:3rem; background:#f3f4f7; font-size:0.9rem; 
 <section id="kontakt">
 <div class="content">
 <h2>Kontakt</h2>
-<p>📞 +420 722 298 822<br>✉️ vonde@email.cz</p>
+<p>
+Kontaktujte mě telefonicky, e-mailem nebo prostřednictvím kontaktního formuláře. Osobní schůzka je možná pouze po předchozí domluvě, v Brně a také v Blansku.<br><br>
+<svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 
+             19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.1 4.1 
+             2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 
+             12.84 12.84 0 0 0 .7 3A2 2 0 0 1 9 9l-1.12 1.12a16 16 0 0 0 6 6L15 15a2 2 0 0 1 2.28-.21 
+             12.84 12.84 0 0 0 3 .7A2 2 0 0 1 22 16.92z" />
+  </svg>
+ Tel: <strong>+420 704 606 928</strong><br>
+<svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="5" width="18" height="14" rx="2"/>
+    <polyline points="3 7 12 13 21 7"/>
+  </svg>
+ Email: <strong>vonde@email.cz</strong><br><br>
+</p>
 <form action="https://formspree.io/f/xwpwglkz" method="POST" onsubmit="this.reset(); alert('Děkujeme! Vaše zpráva byla odeslána.'); return false;">
-<input type="text" name="name" placeholder="Vaše jméno" required>
-<input type="email" name="_replyto" placeholder="Váš e-mail" required>
-<textarea name="message" rows="5" placeholder="Vaše zpráva..." required></textarea>
-<button type="submit">Odeslat zprávu</button>
+  <input type="text" name="name" placeholder="Vaše jméno" required>
+  <input type="email" name="_replyto" placeholder="Váš e-mail" required>
+  <textarea name="message" rows="5" placeholder="Vaše zpráva..." required></textarea>
+  <button type="submit">Odeslat zprávu</button>
 </form>
+<p>
+<br>
+<strong>Sídlo:</strong> Vídeňská 228/7, 639 00 Brno<br>
+<strong>ev. č. ČAK:</strong> 21417<br>
+<strong>IČ:</strong> 21718865<br>
+<strong>ID datové schránky:</strong> tai5yux
+</p>
 </div>
 </section>
+
 
 <button class="contact-btn">Kontaktujte nás</button>
 
@@ -163,6 +505,8 @@ footer { text-align:center; padding:3rem; background:#f3f4f7; font-size:0.9rem; 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const headerOffset = document.querySelector('header').offsetHeight;
+
+  /* Smooth scroll */
   document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -173,6 +517,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  /* Floating button scroll */
   document.querySelector('.contact-btn').addEventListener('click', () => {
     const target = document.querySelector('#kontakt form');
     if(target){
@@ -181,9 +527,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  /* Hero animation */
   const hero = document.querySelector('.hero');
   setTimeout(()=>hero.classList.add('show'),200);
 
+  /* Section on-scroll fade-in */
   const sections = document.querySelectorAll('section:not(.hero)');
   const sectionObserver = new IntersectionObserver((entries, obs)=>{
     entries.forEach(entry=>{
@@ -192,10 +540,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }, {threshold:0.2});
   sections.forEach(section=>sectionObserver.observe(section));
 
+  /* Services staggered animation */
   const serviceItems = document.querySelectorAll('.service-item');
   const servicesObserver = new IntersectionObserver((entries, obs)=>{
     entries.forEach((entry, idx)=>{
-      if(entry.isIntersecting){ setTimeout(()=>{entry.target.classList.add('show');}, idx*150); obs.unobserve(entry.target);}
+      if(entry.isIntersecting){ 
+        setTimeout(()=>{entry.target.classList.add('show');}, idx*150); 
+        obs.unobserve(entry.target);
+      }
     });
   }, {threshold:0.2});
   serviceItems.forEach(item=>servicesObserver.observe(item));
