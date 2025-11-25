@@ -77,6 +77,14 @@ header .logo {
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
+header nav {
+  display: flex;
+  gap: 2rem; /* spacing between menu items */
+  margin-left: auto; /* pushes nav all the way to the right */
+  padding: 0; /* remove any internal padding */
+}
+
+
 nav {
   display:flex;
   gap:2rem; /* trochu víc, menu “dýchá” */
@@ -299,6 +307,7 @@ footer { text-align:center; padding:3rem; background:#f3f4ef; font-size:0.9rem; 
   .hero-photo {
     margin: 0 0 1.5rem 0; /* remove right margin */
   }
+  
 }
 
 /* MOBILE HEADER / HAMBURGER MENU */
@@ -313,13 +322,15 @@ footer { text-align:center; padding:3rem; background:#f3f4ef; font-size:0.9rem; 
   nav {
     display: flex;
     flex-direction: column;
+    justify-content: center; /* vertically center menu items */
+    align-items: flex-start;  /* keep items left-aligned inside menu */
     position: fixed;
     top: 0;
     right: -100%;
     height: 100vh;
     width: 250px;
     background: #0a1f44;
-    padding-top: 5rem;
+    padding: 0 2rem; /* optional horizontal padding */
     gap: 1.5rem;
     transition: right 0.35s ease;
     z-index: 200;
@@ -405,8 +416,8 @@ footer { text-align:center; padding:3rem; background:#f3f4ef; font-size:0.9rem; 
   </div>
 
   <nav>
-    <a href="#onas">O nás</a>
-    <a href="#values">Proč zvolit právě mě</a>
+    <a href="#onas">O mně</a>
+    <!--<a href="#values">Proč zvolit právě mě</a>-->
     <a href="#sluzby">Naše služby</a>
     <a href="#cenik">Ceník</a>
     <a href="#kontakt">Kontakt</a>
@@ -427,11 +438,12 @@ footer { text-align:center; padding:3rem; background:#f3f4ef; font-size:0.9rem; 
 
 <section id="onas">
 <div class="content">
-<h2>O nás</h2>
+<h2>O mně</h2>
 <p>Advokátka Eliška Vondráčková nabízí komplexní právní služby pro jednotlivce i firmy. Každý případ vyžaduje pečlivý a individuální přístup s důrazem na důvěru a diskrétnost.</p>
 </div>
 </section>
 
+<!--
 <section id="values">
 <div class="content">
 <h2>Proč zvolit právě mě</h2>
@@ -444,6 +456,7 @@ footer { text-align:center; padding:3rem; background:#f3f4ef; font-size:0.9rem; 
 </ul>
 </div>
 </section>
+-->
 
 <section id="sluzby">
 <div class="content">
