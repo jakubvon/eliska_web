@@ -635,6 +635,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }, {threshold:0.2});
   serviceItems.forEach(item=>servicesObserver.observe(item));
 });
+  const hamburger = document.querySelector('.hamburger');
+const mobileNav = document.querySelector('header nav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+});
 </script>
 
 </body>
