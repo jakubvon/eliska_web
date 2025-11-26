@@ -66,17 +66,19 @@ section.show { opacity:1; transform:translateY(0); }
 
 .consumer-dispute {
   max-width: 800px;
-  margin: 60px auto 60px auto;
-  padding: 20px 0;
-  color: #333;
-  line-height: 1.6;
+  margin: 40px auto 60px auto;
+  padding: 10px 0;
+  color: #555;
+  font-size: 0.85rem; /* smaller text */
+  line-height: 1.4;
+  text-align: center; /* optional: center text for footer-style */
+}
+.consumer-dispute h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  font-weight: 500;
 }
 
-.consumer-dispute h2 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
 
 .consumer-dispute a {
   color: inherit;
@@ -503,6 +505,26 @@ footer { text-align:center; padding:3rem; background:#f3f4ef; font-size:0.9rem; 
   <div class="service-item">
     <h3>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0a1f44" viewBox="0 0 24 24">
+        <path d="M4 4h16v2H4V4zm0 4h16v2H4V8zm0 4h16v2H4v-2zm0 4h16v2H4v-2z"/>
+      </svg>
+
+      OBČANSKÉ PRÁVO
+    </h3>
+    <ul>
+      <li>Smluvní agenda (sepis smluv kupních, darovacích, nájemních, o dílo, příkazních, zápůjček, výpůjček
+apod.)</li>
+      <li>Vymáhání pohledávek (komunikace s dlužníkem, předžalobní výzvy, sepis návrhu na vydání platebního
+rozkazu, žaloby, exekučního návrhu)</li>
+      <li>Svéprávnost a opatrovnictví (příprava návrhu na omezení svéprávnosti, návrh na ustanovení
+opatrovníka, zastupování v řízení)</li>
+      <li>Zastupování ve sporných i nesporných řízeních</li>
+      <li>a další související služby</li>
+    </ul>
+  </div>
+
+  <div class="service-item">
+    <h3>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0a1f44" viewBox="0 0 24 24">
         <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
       </svg>
 
@@ -534,26 +556,6 @@ matky)</li>
       <li>Věcná břemena (smlouva o zrušení či zřízení zástavního břemena)</li>
       <li>Příprava a podání návrhu na vklad do katastru nemovitostí</li>
       <li>Advokátní úschova kupní ceny</li>
-      <li>a další související služby</li>
-    </ul>
-  </div>
-
-  <div class="service-item">
-    <h3>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0a1f44" viewBox="0 0 24 24">
-        <path d="M4 4h16v2H4V4zm0 4h16v2H4V8zm0 4h16v2H4v-2zm0 4h16v2H4v-2z"/>
-      </svg>
-
-      OBČANSKÉ PRÁVO
-    </h3>
-    <ul>
-      <li>Smluvní agenda (sepis smluv kupních, darovacích, nájemních, o dílo, příkazních, zápůjček, výpůjček
-apod.)</li>
-      <li>Svéprávnost a opatrovnictví (příprava návrhu na omezení svéprávnosti, návrh na ustanovení
-opatrovníka, zastupování v řízení)</li>
-      <li>Vymáhání pohledávek (komunikace s dlužníkem, předžalobní výzvy, sepis návrhu na vydání platebního
-rozkazu, žaloby, exekučního návrhu)</li>
-      <li>Zastupování ve sporných i nesporných řízeních</li>
       <li>a další související služby</li>
     </ul>
   </div>
@@ -617,17 +619,6 @@ odvolání, dovolání a dalších opravných prostředků)</li>
 </div>
 </section>
 
-<section class="consumer-dispute">
-  <h2>Mimosoudní řešení spotřebitelských sporů</h2>
-  <p>
-    Na základě zákona č. 634/1992 Sb., o ochraně spotřebitele, ve znění pozdějších předpisů,
-    je možné mimosoudní řešení spotřebitelského sporu vyplývajícího ze smlouvy o poskytování
-    právních služeb mezi advokátem a spotřebitelem.
-    Pověřeným subjektem je Česká advokátní komora, sídlem Národní 16, Praha 1, PSČ 110 00.  
-    Více informací naleznete na <a href="https://www.cak.cz" target="_blank" rel="noopener">www.cak.cz</a>.
-  </p>
-</section>
-
 
 <section id="cenik">
 <div class="content">
@@ -646,6 +637,7 @@ přiznané či získané částky (např. při vymáhání pohledávek)</p>
 <p>Dle počtu úkonů právní služby, které budou v dané věci učiněny, jednotlivé úkony právní služby jsou
 stanoveny na základě <strong>Vyhlášky Ministerstva spravedlnosti č. 177/1996 Sb.</strong>, o odměnách advokátů a
 náhradách advokátů za poskytování právních služeb (advokátní tarif).</p>
+<hr style="border:0; border-top:1px solid #ccc; margin:1.5rem 0;">
 <p>V případě, že odměna nebude sjednána dohodou s klientem, řídí se odměna advokáta příslušnými
 ustanoveními vyhlášky Ministerstva spravedlnosti č. 177/1996 Sb., o odměnách advokátů a náhradách
 advokátů za poskytování právních služeb (advokátní tarif).</p>
@@ -690,6 +682,17 @@ Kontaktujte mě telefonicky, e-mailem nebo prostřednictvím kontaktního formul
 </div>
 </section>
 
+
+<section class="consumer-dispute">
+  <h2>Mimosoudní řešení spotřebitelských sporů</h2>
+  <p>
+    Na základě zákona č. 634/1992 Sb., o ochraně spotřebitele, ve znění pozdějších předpisů,
+    je možné mimosoudní řešení spotřebitelského sporu vyplývajícího ze smlouvy o poskytování
+    právních služeb mezi advokátem a spotřebitelem.
+    Pověřeným subjektem je Česká advokátní komora, sídlem Národní 16, Praha 1, PSČ 110 00.  
+    Více informací naleznete na <a href="https://www.cak.cz" target="_blank" rel="noopener">www.cak.cz</a>.
+  </p>
+</section>
 
 <button class="contact-btn">Kontaktujte nás</button>
 
