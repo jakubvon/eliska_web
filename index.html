@@ -156,6 +156,16 @@ nav a:hover::after {
   width:100%;
 }
 
+.policy-link a {
+  text-decoration: underline;
+  color: #0d1b2a;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.policy-link a:hover {
+  color: #d4af37;
+}
 
 
 /* Hero */
@@ -664,7 +674,7 @@ Kontaktujte mě telefonicky, e-mailem nebo prostřednictvím kontaktního formul
     <rect x="3" y="5" width="18" height="14" rx="2"/>
     <polyline points="3 7 12 13 21 7"/>
   </svg>
- Email: <strong>vondrackova@sklegal.cz</strong><br><br>
+ Email: <strong>info@vondrackova-advokat.cz</strong><br><br>
 </p>
 <form id="contactForm" action="https://formspree.io/f/xrbvwjoj" method="POST">
   <input type="text" name="name" placeholder="Vaše jméno" required>
@@ -696,7 +706,12 @@ Kontaktujte mě telefonicky, e-mailem nebo prostřednictvím kontaktního formul
 
 <button class="contact-btn">Kontaktujte nás</button>
 
-<footer>© 2025 Eliška Vondráčková | Všechna práva vyhrazena</footer>
+<footer>© 2025 Eliška Vondráčková | Všechna práva vyhrazena
+  <p class="policy-link">
+    <a href="GDPR_.pdf" target="_blank">Ochrana osobních údajů</a>
+  </p>
+
+</footer>
 
 <script>
   document.getElementById("contactForm").addEventListener("submit", function() {
